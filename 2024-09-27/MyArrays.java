@@ -11,7 +11,7 @@ public class MyArrays{
 public static String aryToString(int[] nums){
   String start = "[";
   for (int i = 0; i < nums.length; i++) {
-    if (i == 0) {
+    if (i != (nums.length-1)) {
       start += nums[i] + ", ";
     } else if (i == (nums.length-1)) {
       start += nums[i];
