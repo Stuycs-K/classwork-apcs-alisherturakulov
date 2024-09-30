@@ -4,11 +4,11 @@ public class MyArrays{
 	  System.out.println(aryToString(new int[]{1, 2, 3, 4, 5}));
 	  
 	  System.out.println("Tests for returnCopy-----------");
-	  System.out.println(aryToString(returnCopy(new int[]{1, 2, 3, 4, 5})));
-	  System.out.println(aryToString(returnCopy(new int[]{1})));
-	  System.out.println(aryToString(returnCopy(new int[]{1, 20, 300, 45, 5})));
-	  System.out.println(aryToString(returnCopy(new int[]{100, 1000, 432, 543, 1, 54})));
-	  System.out.println(aryToString(returnCopy(new int[]{})));
+	  System.out.println(aryToString(returnCopy(new int[]{1, 2, 3, 4, 5})) + "Should be: " + aryToString(new int[]{1, 2, 3, 4, 5}) );
+	  System.out.println(aryToString(returnCopy(new int[]{1})) + "Should be: " + aryToString(new int[]{1}) );
+	  System.out.println(aryToString(returnCopy(new int[]{1, 20, 300, 45, 5})) + "Should be: " + aryToString(new int[]{1, 20, 300, 45, 5}) );
+	  System.out.println(aryToString(returnCopy(new int[]{100, 1000, 432, 543, 1, 54})) + "Should be: " + aryToString(new int[]{100, 1000, 432, 543, 1, 54}) );
+	  System.out.println(aryToString(returnCopy(new int[]{})) + "Should be: " + aryToString(new int[]{}) );
 	  
 	  System.out.println("Tests for concatArray-----------"); 
 	  /*
@@ -50,9 +50,11 @@ public static int[] returnCopy(int[]ary) {
 
 // returns a new array, that contains all of the values of ary1 followed by 
 // all of the values of ary2. The order of the values should remain the same. 
+/*
 public static int[] concatArray(int[]ary1, int[]ary2) {
-	return new int[];
+	return ;
 }
+*/
 
 
 }
