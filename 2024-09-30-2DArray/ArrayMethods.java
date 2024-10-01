@@ -21,11 +21,8 @@ public class ArrayMethods{
 	System.out.println(arrToString(swapRC(new int[3][3]))); // should be 3 rows 3  columns of zeroes
 	System.out.println(arrToString(swapRC(new int[][]{{1, 2}, {3, 4}, {5, 6}}))); // should be 2 rows 3 columns
 	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
-  System.out.println("Tests for replaceNegative---------------------");
-  System.out.println(arrToString(replaceNegative(new int[][]{{-1, 3, 5}, {-5, -2, 8}, {0}})));
-
-
-
+    System.out.println("Tests for replaceNegative---------------");
+	replaceNegative(new int[][]{{-1, 3, 5}, {-5, -2, 8}, {0}}); // should be {{1, 3, 5}, {0, 1, 8}, {0}}
 
 }
 
@@ -96,19 +93,19 @@ public static int arr2DSum(int[][]nums){
 //that negative with the value 1
 //-All other negatives replace with 0
 public static void replaceNegative(int[][] vals){
-  for (int i = 0; i < vals.length; i++) {
-    for (int j = 0; j < vals[i].length; j++) {
-      if (vals[i][j] < 0) {
-        if (i == j) {
-          vals[i][j] = 1;
-        } else {
-        vals[i][j] = 0;
-        }
-      }
-    }
-  }
-
-
+	System.out.println("Before: vals = " + arrToString(vals));
+	for (int i = 0; i < vals.length; i++) {
+		for (int j = 0; j < vals[i].length; j++) {
+			if (vals[i][j] < 0) {
+				if (i == j) {
+					vals[i][j] = 1;
+				} else {
+					vals[i][j] = 0;
+				}
+			}
+		}
+	}
+	System.out.println("After: " + arrToString(vals));
 }
 
 //4. Make a copy of the given 2d array.
