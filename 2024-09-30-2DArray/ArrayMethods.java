@@ -11,11 +11,17 @@ public class ArrayMethods{
 	System.out.println(arrToString(new int[4][0]));
 	System.out.println(arrToString(new int[3][3]));
 	System.out.println(arrToString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
-	System.out.println("Tests for ArrToString---------------------");
+	System.out.println("Tests for arr2DSum---------------------");
 	System.out.println(arr2DSum(new int[1][1])); // should be zero
 	System.out.println(arr2DSum(new int[][]{{1, 2, 3}, {1}, {2, 6, 2, 3, 5, 7}, {100}})); // should be 132
 	System.out.println(arr2DSum(new int[][]{{100, 200, 320}, {0}, {430, 10, 10, 10}, {435}})); //  1515
 	System.out.println(arr2DSum(new int[][]{{1, 0, 0}, {1, 0, 0}, {1, 0, 0}})); // 3
+	System.out.println("Tests for swapRC---------------------");
+	System.out.println(arrToString(swapRC(new int[3][4]))); // should be  4 rows 3 columns
+	System.out.println(arrToString(swapRC(new int[3][3]))); // should be 3 rows 3  columns of zeroes
+	System.out.println(arrToString(swapRC(new int[][]{{1, 2}, {3, 4}, {5, 6}}))); // should be 2 rows 3 columns
+	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
+	
 	
 
 }
@@ -61,8 +67,8 @@ public class ArrayMethods{
 public static int arr2DSum(int[][]nums){
 	int sum = 0;
 	for (int i = 0; i < nums.length; i++) {
-		for (int k = 0; k < nums[i].length; k++) {
-			sum += nums[i][k];
+		for (int j = 0; j < nums[i].length; j++) {
+			sum += nums[i][j];
 		}
 	}
 	return sum;
@@ -73,6 +79,12 @@ public static int arr2DSum(int[][]nums){
    * e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
    */
  public static int[][] swapRC(int[][]nums){
-   return new int[1][1];
- }
+	 int[][] retAr = new int[nums[0].length][nums.length];
+	 for (int i = 0; i < nums[0].length; i++) {
+		 for (int j = 0; j < nums.length; j++) {
+			 retAr[i][j] = nums[j][i];
+		 }
+	 }
+	 return retAr;
+}
 }
