@@ -23,6 +23,13 @@ public class ArrayMethods{
 	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
     System.out.println("Tests for replaceNegative---------------");
 	replaceNegative(new int[][]{{-1, 3, 5}, {-5, -2, 8}, {0}}); // should be {{1, 3, 5}, {0, 1, 8}, {0}}
+	replaceNegative(new int[][]{{-1, -1, -3, -5}, {-1, 3, -4, -103}, {-2, 500, -432, 100}, {123, 54233, -90, -45}}); // should be {{1, 0, 0, 0}, {0, 3, 0, 0}, {0, 500, 1, 100}, {123, 54233, 0, 1}});
+	replaceNegative(new int[][]{{1, 2, 3}, {430, 10, 2}, {40, 102, 2}}); // should be {{1, 2, 3}, {430, 10, 2}, {40, 102, 2}}
+	replaceNegative(new int[][]{{-1}, {-2}, {-3}}); // should be {{1}, {0}, {0}}
+	replaceNegative(new int[][]{{-400}}); // should be {{1}}
+	replaceNegative(new int[][]{{400}}); // should be {{400}}
+	System.out.println("Tests for copy---------------"); // to be continued
+	
 
 }
 
@@ -93,7 +100,8 @@ public static int arr2DSum(int[][]nums){
 //that negative with the value 1
 //-All other negatives replace with 0
 public static void replaceNegative(int[][] vals){
-	System.out.println("Before: vals = " + arrToString(vals));
+	//Is a void method so cant return, must print within and call in main().
+	System.out.println("Before: " + arrToString(vals)); 
 	for (int i = 0; i < vals.length; i++) {
 		for (int j = 0; j < vals[i].length; j++) {
 			if (vals[i][j] < 0) {
