@@ -29,6 +29,11 @@ public class ArrayMethods{
 	replaceNegative(new int[][]{{-400}}); // should be {{1}}
 	replaceNegative(new int[][]{{400}}); // should be {{400}}
 	System.out.println("Tests for copy---------------"); // to be continued
+	copy(new int[3][4]);
+	copy(new int[][]{{1, 5, 34, 765}, {0}, {123}, {1, 2, 3, 4, 657}});
+	copy(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}});
+	copy(new int[][]{{1}});
+	copy(new int[1][1]);
 	
 
 }
@@ -122,7 +127,25 @@ public static void replaceNegative(int[][] vals){
 //You SHOULD write a helper method for this.
 //If you don't see a good way to do that, you should stop and look at prior methods.
 public static int[][] copy(int[][] nums){
-  return null;//placeholder so it compiles
+	System.out.println("In:  " + arrToString(nums));
+	int[][] retAr = new int[nums.length][]; 
+    //cant just reutrn the parameter since the arguments are copied the parameter, but the copy is an address not the actual array.
+	for (int i = 0; i < nums.length; i++){
+		retAr[i] = copy1d(nums[i]);
+	}
+	System.out.print("Ret: " + arrToString(retAr) + "Should be F: "); //prints retAr to check
+	System.out.println(nums == retAr);
+	return retAr;
+	
+}
+
+// 4 Helper: return copy of given 1D array
+public static int[] copy1d(int[] nums){
+	int[] retAr = new int[nums.length];
+	for (int i = 0; i < nums.length; i++){
+		retAr[i] = nums[i];
+	}
+	return retAr;
 }
 
 }
