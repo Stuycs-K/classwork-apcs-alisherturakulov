@@ -9,9 +9,6 @@ public class ArrayDemo{
     System.out.println(countZeros2D(new int[][]{}));
     System.out.println(countZeros2D(new int[][]{}));
     System.out.println(countZeros2D(new int[][]{}));
-    System.out.println("Tests for arr2DSum----------------");
-    System.out.println();
-    System.out.println();
     System.out.println("Tests for htmlTable----------------");
     System.out.println();
     System.out.println();
