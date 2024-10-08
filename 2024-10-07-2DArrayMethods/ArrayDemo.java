@@ -5,6 +5,43 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+	System.out.println("Tests for ArrToString---------------------");
+    System.out.println(arrToString(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}}));
+    System.out.println(arrToString(new int[3][4]));
+	System.out.println(arrToString(new int[0][]));
+	System.out.println(arrToString(new int[4][0]));
+	System.out.println(arrToString(new int[3][3]));
+	System.out.println(arrToString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
+	System.out.println("Same tests using Arrays.toString()--------------");
+	System.out.println(Arrays.toString(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}}));
+    System.out.println(Arrays.toString(new int[3][4]));
+	System.out.println(Arrays.toString(new int[0][]));
+	System.out.println(Arrays.toString(new int[4][0]));
+	System.out.println(Arrays.toString(new int[3][3]));
+	System.out.println(Arrays.toString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
+	System.out.println("Tests for arr2DSum---------------------");
+	System.out.println(arr2DSum(new int[1][1])); // should be zero
+	System.out.println(arr2DSum(new int[][]{{1, 2, 3}, {1}, {2, 6, 2, 3, 5, 7}, {100}})); // should be 132
+	System.out.println(arr2DSum(new int[][]{{100, 200, 320}, {0}, {430, 10, 10, 10}, {435}})); //  1515
+	System.out.println(arr2DSum(new int[][]{{1, 0, 0}, {1, 0, 0}, {1, 0, 0}})); // 3
+	System.out.println("Tests for swapRC---------------------");
+	System.out.println(arrToString(swapRC(new int[3][4]))); // should be  4 rows 3 columns
+	System.out.println(arrToString(swapRC(new int[3][3]))); // should be 3 rows 3  columns of zeroes
+	System.out.println(arrToString(swapRC(new int[][]{{1, 2}, {3, 4}, {5, 6}}))); // should be 2 rows 3 columns
+	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
+    System.out.println("Tests for replaceNegative---------------");
+	replaceNegative(new int[][]{{-1, 3, 5}, {-5, -2, 8}, {0}}); // should be {{1, 3, 5}, {0, 1, 8}, {0}}
+	replaceNegative(new int[][]{{-1, -1, -3, -5}, {-1, 3, -4, -103}, {-2, 500, -432, 100}, {123, 54233, -90, -45}}); // should be {{1, 0, 0, 0}, {0, 3, 0, 0}, {0, 500, 1, 100}, {123, 54233, 0, 1}});
+	replaceNegative(new int[][]{{1, 2, 3}, {430, 10, 2}, {40, 102, 2}}); // should be {{1, 2, 3}, {430, 10, 2}, {40, 102, 2}}
+	replaceNegative(new int[][]{{-1}, {-2}, {-3}}); // should be {{1}, {0}, {0}}
+	replaceNegative(new int[][]{{-400}}); // should be {{1}}
+	replaceNegative(new int[][]{{400}}); // should be {{400}}
+	System.out.println("Tests for copy---------------"); // to be continued
+	copy(new int[3][4]);
+	copy(new int[][]{{1, 5, 34, 765}, {0}, {123}, {1, 2, 3, 4, 657}});
+	copy(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}});
+	copy(new int[][]{{1}});
+	copy(new int[1][1]);
     System.out.println("Tests for countZeros2D----------------");
     System.out.println(countZeros2D(new int[][]{}));
     System.out.println(countZeros2D(new int[][]{}));
@@ -66,7 +103,7 @@ public class ArrayDemo{
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
     //Is a void method so cant return, must print within and call in main().
-  	//System.out.println("Before: " + arrToString(vals));
+  	System.out.println("Before: " + arrToString(vals));
   	for (int i = 0; i < vals.length; i++) {
   		for (int j = 0; j < vals[i].length; j++) {
   			if (vals[i][j] < 0) {
@@ -78,7 +115,7 @@ public class ArrayDemo{
   			}
   		}
   	}
-  	//System.out.println("After: " + arrToString(vals));
+  	System.out.println("After: " + arrToString(vals));
   }
 
   //4. Make a copy of the given 2d array.
@@ -97,6 +134,15 @@ public class ArrayDemo{
   	System.out.println(nums == retAr);
   	return retAr;
   }
+  
+ // 4 Helper: return copy of given 1D array
+public static int[] copy1d(int[] nums){
+	int[] retAr = new int[nums.length];
+	for (int i = 0; i < nums.length; i++){
+		retAr[i] = nums[i];
+	}
+	return retAr;
+}
 
   //5. Rotate an array by returning a new array with the rows and columns swapped.
   //   You may assume the array is rectangular and neither rows nor cols is 0.
