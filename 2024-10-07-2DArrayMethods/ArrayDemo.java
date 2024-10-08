@@ -20,15 +20,15 @@ public class ArrayDemo{
 	System.out.println(Arrays.toString(new int[3][3]));
 	System.out.println(Arrays.toString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
 	System.out.println("Tests for arr2DSum---------------------");
-	System.out.println(arr2DSum(new int[1][1])); // should be zero
-	System.out.println(arr2DSum(new int[][]{{1, 2, 3}, {1}, {2, 6, 2, 3, 5, 7}, {100}})); // should be 132
-	System.out.println(arr2DSum(new int[][]{{100, 200, 320}, {0}, {430, 10, 10, 10}, {435}})); //  1515
-	System.out.println(arr2DSum(new int[][]{{1, 0, 0}, {1, 0, 0}, {1, 0, 0}})); // 3
+	System.out.println(arr2DSum(new int[1][1]) + " should be 0"); // should be zero
+	System.out.println(arr2DSum(new int[][]{{1, 2, 3}, {1}, {2, 6, 2, 3, 5, 7}, {100}}) + " should be  132"); // should be 132
+	System.out.println(arr2DSum(new int[][]{{100, 200, 320}, {0}, {430, 10, 10, 10}, {435}}) + " should be  1515"); //  1515
+	System.out.println(arr2DSum(new int[][]{{1, 0, 0}, {1, 0, 0}, {1, 0, 0}}) + " should be  3"); // 3
 	System.out.println("Tests for swapRC---------------------");
-	System.out.println(arrToString(swapRC(new int[3][4]))); // should be  4 rows 3 columns
-	System.out.println(arrToString(swapRC(new int[3][3]))); // should be 3 rows 3  columns of zeroes
-	System.out.println(arrToString(swapRC(new int[][]{{1, 2}, {3, 4}, {5, 6}}))); // should be 2 rows 3 columns
-	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}}))); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
+	System.out.println(arrToString(swapRC(new int[3][4])) + " should be  4 rows 3 columns"); //
+	System.out.println(arrToString(swapRC(new int[3][3])) + " should be  3 rows 3 columns"); // should be 3 rows 3  columns of zeroes
+	System.out.println(arrToString(swapRC(new int[][]{{1, 2}, {3, 4}, {5, 6}})) + " should be  2 rows 3 columns [[1 3 5], [2 4 6]]"); // should be 2 rows 3 columns
+	System.out.println(arrToString(swapRC(new int[][]{{1,2,3},{4,5,6}})) + " should be  3 rows 2 columns {{1,4},{2,5},{3,6}}"); // should be {{1,4},{2,5},{3,6}} 3 rows 2 columns
     System.out.println("Tests for replaceNegative---------------");
 	replaceNegative(new int[][]{{-1, 3, 5}, {-5, -2, 8}, {0}}); // should be {{1, 3, 5}, {0, 1, 8}, {0}}
 	replaceNegative(new int[][]{{-1, -1, -3, -5}, {-1, 3, -4, -103}, {-2, 500, -432, 100}, {123, 54233, -90, -45}}); // should be {{1, 0, 0, 0}, {0, 3, 0, 0}, {0, 500, 1, 100}, {123, 54233, 0, 1}});
@@ -43,9 +43,9 @@ public class ArrayDemo{
 	copy(new int[][]{{1}});
 	copy(new int[1][1]);
     System.out.println("Tests for countZeros2D----------------");
-    System.out.println(countZeros2D(new int[][]{}));
-    System.out.println(countZeros2D(new int[][]{}));
-    System.out.println(countZeros2D(new int[][]{}));
+    System.out.println(countZeros2D(new int[][]{{0, 0, 0}, {0, 2, 3, 4, 0, 5, 0}, {1, 2, 3, 4}, {1}, {0}}) + " should be 7");
+    System.out.println(countZeros2D(new int[][]{{1}, {1, 2, 3, 4}}) + " should be 0");
+    System.out.println(countZeros2D(new int[3][4]) + " should be 12");
     System.out.println("Tests for htmlTable----------------");
     System.out.println();
     System.out.println();
@@ -80,7 +80,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+	  int count = 0;
+	  for (int i = 0; i < nums.length; i++) {
+		  for (int j = 0; j < nums[i].length; j++) {
+			  if (nums[i][j] == 0) {
+				  count++;
+			  }
+		  }
+	  }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
