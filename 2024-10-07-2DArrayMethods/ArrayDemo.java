@@ -5,6 +5,7 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+	
 	System.out.println("Tests for ArrToString---------------------");
     System.out.println(arrToString(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}}));
     System.out.println(arrToString(new int[3][4]));
@@ -12,13 +13,20 @@ public class ArrayDemo{
 	System.out.println(arrToString(new int[4][0]));
 	System.out.println(arrToString(new int[3][3]));
 	System.out.println(arrToString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
+	System.out.println(arrToString(new int[5]));
+	System.out.println(arrToString(new int[]{0, 12, 24, 36, 48}));
+	System.out.println(arrToString(new int[0]));
 	System.out.println("Same tests using Arrays.toString()--------------");
-	System.out.println(Arrays.toString(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}}));
-    System.out.println(Arrays.toString(new int[3][4]));
-	System.out.println(Arrays.toString(new int[0][]));
-	System.out.println(Arrays.toString(new int[4][0]));
-	System.out.println(Arrays.toString(new int[3][3]));
-	System.out.println(Arrays.toString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
+	System.out.println(Arrays.deepToString(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}}));
+    System.out.println(Arrays.deepToString(new int[3][4]));
+	System.out.println(Arrays.deepToString(new int[0][]));
+	System.out.println(Arrays.deepToString(new int[4][0]));
+	System.out.println(Arrays.deepToString(new int[3][3]));
+	System.out.println(Arrays.deepToString(new int[][]{{1, 2, 3, 4}, {2, 65, 5}, {3, 6, 9, 12}, {4, 8, 432, 0, 6, 3, 6, 2}}));
+	System.out.println(Arrays.toString(new int[5]));
+	System.out.println(Arrays.toString(new int[]{0, 12, 24, 36, 48}));
+	System.out.println(Arrays.toString(new int[0]));
+	/*
 	System.out.println("Tests for arr2DSum---------------------");
 	System.out.println(arr2DSum(new int[1][1]) + " should be 0"); // should be zero
 	System.out.println(arr2DSum(new int[][]{{1, 2, 3}, {1}, {2, 6, 2, 3, 5, 7}, {100}}) + " should be  132"); // should be 132
@@ -42,6 +50,7 @@ public class ArrayDemo{
 	copy(new int[][] {{1, 2}, {5, 6}, {0, 3, 5}});
 	copy(new int[][]{{1}});
 	copy(new int[1][1]);
+	*/
     System.out.println("Tests for countZeros2D----------------");
     System.out.println(countZeros2D(new int[][]{{0, 0, 0}, {0, 2, 3, 4, 0, 5, 0}, {1, 2, 3, 4}, {1}, {0}}) + " should be 7");
     System.out.println(countZeros2D(new int[][]{{1}, {1, 2, 3, 4}}) + " should be 0");
@@ -111,7 +120,7 @@ public class ArrayDemo{
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
     //Is a void method so cant return, must print within and call in main().
-  	System.out.println("Before: " + arrToString(vals));
+  	//System.out.println("Before: " + arrToString(vals));
   	for (int i = 0; i < vals.length; i++) {
   		for (int j = 0; j < vals[i].length; j++) {
   			if (vals[i][j] < 0) {
@@ -123,7 +132,7 @@ public class ArrayDemo{
   			}
   		}
   	}
-  	System.out.println("After: " + arrToString(vals));
+  	//System.out.println("After: " + arrToString(vals));
   }
 
   //4. Make a copy of the given 2d array.
@@ -132,14 +141,14 @@ public class ArrayDemo{
   //You SHOULD write a helper method for this.
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
-    System.out.println("In:  " + arrToString(nums));
+    //System.out.println("In:  " + arrToString(nums));
   	int[][] retAr = new int[nums.length][];
       //cant just reutrn the parameter since the arguments are copied the parameter, but the copy is an address not the actual array.
   	for (int i = 0; i < nums.length; i++){
   		retAr[i] = copy1d(nums[i]);
   	}
-  	System.out.print("Ret: " + arrToString(retAr) + "Should be F: "); //prints retAr to check
-  	System.out.println(nums == retAr);
+  	//System.out.print("Ret: " + arrToString(retAr) + "Should be F: "); //prints retAr to check
+  	//System.out.println(nums == retAr);
   	return retAr;
   }
   
