@@ -26,6 +26,7 @@ public class ArrayDemo{
 	System.out.println(Arrays.toString(new int[5]));
 	System.out.println(Arrays.toString(new int[]{0, 12, 24, 36, 48}));
 	System.out.println(Arrays.toString(new int[0]));
+	
 	/*
 	System.out.println("Tests for arr2DSum---------------------");
 	System.out.println(arr2DSum(new int[1][1]) + " should be 0"); // should be zero
@@ -56,8 +57,10 @@ public class ArrayDemo{
     System.out.println(countZeros2D(new int[][]{{1}, {1, 2, 3, 4}}) + " should be 0");
     System.out.println(countZeros2D(new int[3][4]) + " should be 12");
     System.out.println("Tests for htmlTable----------------");
-    System.out.println();
-    System.out.println();
+	System.out.println(htmlTable(new int[][]{{1,2},{3}}) + " inputAr: " + Arrays.deepToString(new int[][]{{1,2},{3}}));
+    System.out.println(htmlTable(new int[][]{{3}}) + " inputAr: " + Arrays.deepToString(new int[][]{{3}}));
+	System.out.println(htmlTable(new int[3][2]) + " inputAr: " + Arrays.deepToString(new int[3][2]));
+	System.out.println(htmlTable(new int[0][0]) + " inputAr: " + Arrays.deepToString(new int[0][0]));
 
   }
 
@@ -181,6 +184,16 @@ public static int[] copy1d(int[] nums){
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+	  String table = "<table>";
+	  for (int i = 0; i < nums.length; i++) {
+		  table += "<tr>";
+		  for(int j = 0; j < nums[i].length; j++) {
+			  table += "<td>";
+			  table += nums[i][j];
+			  table += "</td>";
+		  }
+		  table += "</tr>";
+	  }
+    return table += "</table>";
   }
 }
