@@ -5,7 +5,9 @@ public class Demo{
   to the others.
   */
   public static double distance(Point a, Point b){
-    return 0.0;
+    double xdist = Math.pow(b.getX() - a.getX(), 2);
+    double ydist = Math.pow(b.getY() - a.getY(), 2);
+    return Math.pow( xdist + ydist, .5);
   }
 
   public static void main(String[]args){
