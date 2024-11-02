@@ -22,21 +22,22 @@ public class ReadFile {
       input.close();
 
       Scanner input2 = new Scanner(file);
-      for (int i = 0; input2.hasNextLine(); i++){
-        if (input2.next().indexOf("{") != -1){
-          System.out.println(input2);
+	  input = new Scanner(file);
+      for (int i = 0; input.hasNextLine(); i++){
+        if (input2.nextLine().indexOf("{") != -1){
+          System.out.println(input.nextLine());
         }
         else{
-          input2.nextLine();
-          //f
+          input.nextLine();
         }
       }
       input2.close();//releases the file from your program
+	  input.close();
 
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
       System.out.println("File not found");
       return; //you can return from a void function just don't put a value.
-    }
+    } 
   }
 }
