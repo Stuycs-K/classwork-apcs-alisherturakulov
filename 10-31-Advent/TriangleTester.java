@@ -17,7 +17,7 @@ public class TriangleTester{
 			int count = 0;
 			File file = new File(filename);
 			Scanner input = new Scanner(file);
-			for(int i = 0; input.hasNextLine(); i++){
+			while(input.hasNextLine()) {
 				input.nextLine();
 				if(isTriangle(input.nextInt(), input.nextInt(), input.nextInt())){
 					count++;
@@ -35,6 +35,29 @@ public class TriangleTester{
 	}
 	
 	public static int countTrianglesB(String filename){
-		return 0;
+		try{
+			int count = 0;
+			File file = new File(fileName);
+			Scanner input =  new Scanner(file);
+			while(input.hasNextLine()) {
+				input.nextLine();
+				int a1 = input.nextInt(), b1 = input.nextInt(), c1 = input.nextInt();
+				input.nextLine();
+				int a2 = input.nextInt(), b2 = input.nextInt(), c2 = input.nextInt();
+				input.nextLine();
+				int a3 = input.nextInt(), b3 = input.nextInt(), c3 = input.nextInt();
+				if(isTriangle(a1, a2, a3){
+					count++;
+				}else if(isTriangle(b1, b2, b3)){
+					count++;
+				}else if(isTriangle(c1, c2, c3)){
+					count++;
+				}
+			}
+			return count;
+		}catch(){
+			System.out.println("File not found");
+			return 0;
+		}
 	}
 }
