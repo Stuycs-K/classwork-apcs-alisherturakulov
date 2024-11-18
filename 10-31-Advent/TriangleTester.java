@@ -12,7 +12,10 @@ public class TriangleTester{
 		System.out.println(countTrianglesB("inputA.txt") + ": should be 1");
 		System.out.println(countTrianglesB("inputTri.txt") + ": is probably right, trust me pls");
 		System.out.println(countTrianglesB("input.txt") + " should ret 0 and print FileNotFoundException");
-	}
+		System.out.println(countTrianglesB("inputB.txt"));
+	  System.out.println(countTrianglesA("inputB.txt"));
+		}
+
 
 	public static int countTrianglesA(String filename){
 		try{
