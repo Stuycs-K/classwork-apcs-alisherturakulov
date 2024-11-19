@@ -21,9 +21,14 @@ public class ShortDistance{
 	  int taxiCabDistance; //taxicab geometry https://en.wikipedia.org/wiki/Taxicab_geometry
 	  
 	  while(input.hasNext()){
-	    String directions = input.next();
+		String directions = input.next();
+		//directions = directions.substring(0, directions.length()-1);
 		turn = directions.charAt(0);
-		blocks = Integer.parseInt(directions.substring(1,2));
+		if(input.hasNext()){
+			blocks = Integer.parseInt(directions.substring(1, directions.length()-1));
+		}else{
+			blocks = Integer.parseInt(directions.substring(1));
+		}
 		//to change facing direction
 		if(dirs[dirIndex] == 'N' &&  turn == 'L'){
 	      dirIndex = 3;
@@ -44,7 +49,8 @@ public class ShortDistance{
 		}else if(dirIndex == 3){
 		  x -= blocks;
 		}
-		//System.out.println(x + ", " + y + " with dirIndex NESW: " + dirIndex + " blocks moved: " + blocks);
+		System.out.println(turn);
+		System.out.println(x + ", " + y + " dir: " + dirs[dirIndex] + " blocks moved: " + blocks);
 	  }
 	  
 	  taxiCabDistance = Math.abs(x) + Math.abs(y);
