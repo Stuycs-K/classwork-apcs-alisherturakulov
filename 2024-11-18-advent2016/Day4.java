@@ -25,7 +25,10 @@ public class Day4{
 		  String sectorCheck; // sectorID[checksum]
 		  int sectorID; 
 		  String checkSum; //check sum letters for comparison
+		  boolean real; //real or decoy room
+		  int realSum = 0;
 		  while(input.hasNextLine()){
+			real = true;
 		    name = "";
 			sectorCheck = "";
 			line = input.nextLine();
@@ -36,17 +39,43 @@ public class Day4{
 			sectorCheck = parts[parts.length-1];
 			sectorID = Integer.parseInt(sectorCheck.substring(0, sectorCheck.indexOf("[")));
 			checkSum = sectorCheck.substring(sectorCheck.indexOf("[")+1, sectorCheck.length()-1);
-		    //System.out.println("name: " + name + " sectID: " + sectorID + " checkSum: " + checkSum);
-			int maxSum;
-			int sum;
-			int[] letterCounts = new int[checkSum.length()];
+		    System.out.println("name: " + name + " sectID: " + sectorID + " checkSum: " + checkSum);
+			String[] checkArr = new String[checkSum.length()];
+			for(int i = 0; i < checkArr.length; i++){
+		      checkArr[i] = ""+checkSum.charAt(i);
+			} 
+			String temp;
+			int[] letterCounts = new int[checkSum.length()]; //holds in same indices num of appearances
 			for(int i = 0; i < checkSum.length(); i++){
 			  letterCounts[i] = countLetterInString(name, checkSum.charAt(i));
 			}
+			int max = letterCounts[0];
+			for(int i = 1; i < letterCounts.length; i++){
+			  if(letterCounts[i-1] == letterCounts[i]){
+			    if(checkSum.substring(i-1, i).compareTo(checkSum.substring(i, i+1)) > 0){
+				 real = false;
+				 System.out.println(real);
+				 /* temp = checkArr[i];
+				  checkArr[i] = checkArr[i-1]
+				  checkArr[i-1] = temp; */
+				}else{
+			    
+				}
+			  }
+			  if(letterCounts[i] > max){
+			    real = false;
+			  }else{
+			    max = letterCounts[i];
+			  }
+			  System.out.println(max);
+			}
+			System.out.println(sectorID + " letter counts: " + real);
+			if(real){
+		      realSum += sectorID;
+			}
 			System.out.println(Arrays.toString(letterCounts));
-			
 		  }
-		  return -1;
+		  return realSum;
 		}catch(FileNotFoundException e){
 		  System.out.println("File not found");
 		  return -1;
@@ -55,6 +84,6 @@ public class Day4{
 	
 	
 	public static void main(String[] args){
-	  sumRealRooms("Input4.txt");
+	  System.out.println(sumRealRooms("Input4.txt"));
 	}
 }
