@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-public class Day4{	
+public class Day4{
 
 	public static int countLetterInString(String name, char letter){
 	  int count = 0;
@@ -15,7 +15,7 @@ public class Day4{
 	  }
 	  return count;
 	}
-	
+
 	public static int sumRealRooms(String filename){
 		try{
 		  Scanner input = new Scanner(new File(filename));
@@ -23,7 +23,7 @@ public class Day4{
 		  String line; //entire line
 		  String name; // room name
 		  String sectorCheck; // sectorID[checksum]
-		  int sectorID; 
+		  int sectorID;
 		  String checkSum; //check sum letters for comparison
 		  boolean real; //real or decoy room
 		  int realSum = 0;
@@ -34,7 +34,7 @@ public class Day4{
 			line = input.nextLine();
 			parts = line.split("-");
 		    for(int i = 0; i < parts.length-1; i++){
-		      name += parts[i]; 
+		      name += parts[i];
 			}
 			sectorCheck = parts[parts.length-1];
 			sectorID = Integer.parseInt(sectorCheck.substring(0, sectorCheck.indexOf("[")));
@@ -43,9 +43,14 @@ public class Day4{
 			String[] checkArr = new String[checkSum.length()];
 			for(int i = 0; i < checkArr.length; i++){
 		      checkArr[i] = ""+checkSum.charAt(i);
-			} 
+			}
 			String temp;
 			int[] letterCounts = new int[checkSum.length()]; //holds in same indices num of appearances
+			String ownSum = "";
+			ArrayList<String> nameLetters = new ArrayList<String>(name.length()); // list of name letters
+			for(int i =0; i < name.length(); i++){
+				nameLetters.add(name.substring(i, i+1));
+			}
 			for(int i = 0; i < checkSum.length(); i++){
 			  letterCounts[i] = countLetterInString(name, checkSum.charAt(i));
 			}
@@ -59,7 +64,7 @@ public class Day4{
 				  checkArr[i] = checkArr[i-1]
 				  checkArr[i-1] = temp; */
 				}else{
-			    
+
 				}
 			  }
 			  if(letterCounts[i] > max){
@@ -81,8 +86,8 @@ public class Day4{
 		  return -1;
 		}
 	}
-	
-	
+
+
 	public static void main(String[] args){
 	  System.out.println(sumRealRooms("Input4.txt"));
 	}
