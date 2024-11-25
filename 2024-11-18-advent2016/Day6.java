@@ -1,17 +1,16 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Day6{
 	public static void main(String[] args){
-		System.out.println("ParseColumnsArr should be 8: " + parseColumnsArr("Input6.txt").length);
+		System.out.println("ParseColumnsArr size should be 8: " + parseColumnsArr("Input6.txt").length);
 		System.out.println("Most common letter should be e: " + mostCommonLetter("ehegfe"));
 		System.out.println(errorCorrectRepeated("Input6.txt"));
 	}
 	
-	public static String[] parseColumnsArr(String filename){
+	public static String[] parseColumnsArr(String filename){ //returns string[] of columns
 		try{
 		Scanner input = new Scanner(new File(filename));
 		String[] lines = new String[624];
@@ -20,8 +19,11 @@ public class Day6{
 		}
 		String[] columns = new String[8];
 		for(int i = 0; i < columns.length; i++){
+			columns[i] = ""; //to get rid of null default
+		}
+		for(int i = 0; i < columns.length; i++){
 			for(int j = 0; j < lines.length; j++){
-				columns[i] += lines[j].charAt(i);
+					columns[i] += lines[j].charAt(i);
 			}
 		}
 		return columns;
@@ -31,7 +33,7 @@ public class Day6{
 		}
 	}
 	
-	public static String mostCommonLetter(String string){
+	public static char mostCommonLetter(String string){
 		String letters = ""; //will hold each distinct letter from string
 		for(int i = 0; i < string.length(); i++){ //initialize letters
 			if(letters.indexOf(string.charAt(i)) == -1){
@@ -55,14 +57,15 @@ public class Day6{
 			}
 		}
 		
-		return "" + letters.charAt(maxIndex);
+		return letters.charAt(maxIndex);
 	}
 	
-	public static String errorCorrectRepeated(String filename){
+	public static String errorCorrectRepeated(String filename){ //gets message from repeated signal message
 		String[] columns = parseColumnsArr(filename);
+		String message = "";
 		for(int i = 0; i < columns.length; i++){
-		break;
+			message += mostCommonLetter(columns[i]);
 		}
-		return null;
+		return message;
 	}
 }
