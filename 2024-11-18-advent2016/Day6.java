@@ -32,13 +32,30 @@ public class Day6{
 	}
 	
 	public static String mostCommonLetter(String string){
-		String letters = "";
-		for(int i = 0; i < string.length(); i++){
+		String letters = ""; //will hold each distinct letter from string
+		for(int i = 0; i < string.length(); i++){ //initialize letters
 			if(letters.indexOf(string.charAt(i)) == -1){
 				letters += string.charAt(i);
 			}
 		}
-		return letters;
+		int[] amounts = new int[letters.length()]; //corresponding indices with number of each etters in string
+		for(int i = 0; i < letters.length(); i++){ //initialize int[] amounts
+			for(int j = string.indexOf(letters.charAt(i)); j < string.length(); j++){
+				if(string.charAt(j) == letters.charAt(i)){
+					amounts[i]++;
+				}
+			}
+		}
+		int maxNum = 0;
+		int maxIndex = -1;
+		for(int i = 0; i < amounts.length; i++){ //
+			if(amounts[i] > maxNum){
+				maxNum = amounts[i];
+				maxIndex = i;
+			}
+		}
+		
+		return "" + letters.charAt(maxIndex);
 	}
 	
 	public static String errorCorrectRepeated(String filename){
