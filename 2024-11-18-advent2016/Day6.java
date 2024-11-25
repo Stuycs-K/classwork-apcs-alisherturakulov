@@ -7,7 +7,7 @@ public class Day6{
 	public static void main(String[] args){
 		System.out.println("ParseColumnsArr size should be 8: " + parseColumnsArr("Input6.txt").length);
 		System.out.println("Most common letter should be e: " + mostCommonLetter("ehegfe"));
-		System.out.println(errorCorrectRepeated("Input6.txt"));
+		System.out.println(errorCorrectRepeated("Input6.txt")); // edited for PART 2 Least common letters
 	}
 	
 	public static String[] parseColumnsArr(String filename){ //returns string[] of columns
@@ -48,6 +48,7 @@ public class Day6{
 				}
 			}
 		}
+		/*commented out part 1
 		int maxNum = 0;
 		int maxIndex = -1;
 		for(int i = 0; i < amounts.length; i++){ //
@@ -55,9 +56,18 @@ public class Day6{
 				maxNum = amounts[i];
 				maxIndex = i;
 			}
+		}*/
+		int minNum = 624;
+		int minIndex = -1;
+		for(int i = 0; i < amounts.length; i++){
+			if(amounts[i] < minNum){
+			minNum = amounts[i];
+			minIndex = i;
+			}
 		}
 		
-		return letters.charAt(maxIndex);
+		
+		return letters.charAt(minIndex/*maxIndex*/); 
 	}
 	
 	public static String errorCorrectRepeated(String filename){ //gets message from repeated signal message
