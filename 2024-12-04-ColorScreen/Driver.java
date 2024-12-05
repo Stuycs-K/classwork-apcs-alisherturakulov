@@ -119,8 +119,8 @@ public class Driver{
 		
 		//go(15, 30);
 		
-		go(31,1);
+		go(31,80);
 		
-		System.out.print(RESET);
+		System.out.println(RESET);
 	}
 }
