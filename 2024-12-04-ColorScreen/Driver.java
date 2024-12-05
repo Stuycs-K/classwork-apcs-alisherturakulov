@@ -70,38 +70,48 @@ public class Driver{
 		go(1,1);
 		for(int i = 0; i < 80; i++){
 			System.out.print("=");
+			wait(20);
 		}
-		for(int i = 1; i <= 30; i++){
+		for(int i = 2; i < 30; i++){
 			go(i, 1);
 			System.out.print("H");
+			wait(20);
 		}
-		for(int i = 2; i<= 30; i++){
+		for(int i = 2; i< 30; i++){
 			go(i,80);
 			System.out.print("H");
+			wait(20);
 		}
 		go(30,1);
 		color(background(WHITE), GREEN);
 		for(int i = 0; i < 80; i++){
 			System.out.print("M");
+			wait(20);
 		}
 		
-		int[] randoms = new int[]{((int) Math.Random()*100),((int) Math.Random()*100), ((int) Math.Random()*100)};
-		
+		int[] randoms = new int[3];
+		randoms[0] = (int) (Math.random()*100);
+		randoms[1] = (int) (Math.random()*100);
+		randoms[2] = (int) (Math.random()*100);
+		//print random numbers from array in second row
 		go(2,20);
 		for(int i = 1; i <= 3; i++){
 			go(2, 1+(19*i));
 			if(randoms[i-1] < 25){
-				
+				color(RED+60);
+				System.out.print(randoms[i-1]);
 			}else if(randoms[i-1] > 95){
-				
+				color(GREEN+60);
+				System.out.print(randoms[i-1]);
 			}else{
-				
+				color(WHITE);
+				System.out.print(randoms[i-1]);
 			}
-			System.out.print();
+			wait(300);
 		}
-		System.out.print(randoms[0]);
+		wait(5000);
+		go(30,80);
 		
-		
-		System.out.print(RESET);
+		System.out.println(RESET);
 	}
 }
