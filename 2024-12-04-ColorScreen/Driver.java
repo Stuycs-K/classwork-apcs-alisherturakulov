@@ -75,18 +75,18 @@ public class Driver{
 		for(int i = 2; i < 30; i++){
 			go(i, 1);
 			System.out.print("H");
-			wait(20);
+			wait(10);
 		}
 		for(int i = 2; i< 30; i++){
 			go(i,80);
 			System.out.print("H");
-			wait(20);
+			wait(10);
 		}
 		go(30,1);
 		color(background(WHITE), GREEN);
 		for(int i = 0; i < 80; i++){
 			System.out.print("M");
-			wait(20);
+			wait(10);
 		}
 		
 		int[] randoms = new int[3];
@@ -107,11 +107,20 @@ public class Driver{
 				color(WHITE);
 				System.out.print(randoms[i-1]);
 			}
-			wait(300);
+			wait(200);
 		}
-		wait(5000);
-		go(30,80);
+		wait(100);
+		go(3,2);
+		color(background(BLUE), WHITE);
+		for(int i = 1; i < 79; i++){
+			System.out.print("+");
+			wait(10);
+		}
 		
-		System.out.println(RESET);
+		//go(15, 30);
+		
+		go(31,1);
+		
+		System.out.print(RESET);
 	}
 }
