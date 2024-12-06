@@ -75,10 +75,8 @@ public class Barbarian extends Adventurer{
 	//hurt or hinder the target adventurer, consume some special resource
 	public String specialAttack(Adventurer other){
 		int result = other.getHP() - 20;
-		if(result < 0){
-			result = 0;
-		}
 		other.setHP(result);
+			
 		
 		result = this.getSpecial() - 15;
 		if(result < 0){
@@ -86,7 +84,7 @@ public class Barbarian extends Adventurer{
 		}
 		this.setSpecial(result);
 		
-		return "Used 15 special to hurt " + other.getName() + " by 20"; 
+		return "Used 15 " + this.getSpecialName() + " to hurt " + other.getName() + " by 20"; 
 	}
 	
 
