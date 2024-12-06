@@ -18,4 +18,28 @@ public class Barbarian extends Adventurer{
 		this.special = 10;
 		this.specialMax = 10;
 	}
+	
+	
+	//Methods
+	public String getSpecialName(){
+		return specialName;
+	}
+	
+	public int getSpecial(){
+		return special;
+	}
+	
+	public void setSpecial(int n){
+		if(n > getSpecialMax() - getSpecial()){
+			n = getSpecialMax();
+		}
+		this.special = n;
+	}
+	
+	public int getSpecialMax(){
+		return specialMax;
+	}
+	
+	
+	
 }
