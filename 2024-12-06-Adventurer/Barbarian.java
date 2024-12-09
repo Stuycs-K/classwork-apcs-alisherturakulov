@@ -60,23 +60,21 @@ public class Barbarian extends Adventurer{
 		int add = getHP() + 10;
 		if(getmaxHP() < add){
 			setHP(add);
-			return this.getName() + " buffed 10 HP";
+			return this.getName() + " buffed 10 HP and restored " + restoreSpecial(10) + " " + getSpecialName();
 		}
 		setHP(add);
-		return this.getName() + " healed 10 HP";
+		return this.getName() + " healed 10 HP and restored " + restoreSpecial(10) + " " + getSpecialName();
 	}
 
 	//hurt or hinder the target adventurer, consume some special resource
 	public String specialAttack(Adventurer other){
-		int result = other.getHP() - 20;
-		other.setHP(result);
-
-		result = this.getSpecial() - 15;
+		other.applyDamage(15);
+		int result = this.getSpecial() - 15;
 		if(result < 0){
 			result = 0;
 		}
 		this.setSpecial(result);
-		return this.getName() + " Used 15 " + this.getSpecialName() + " to hurt " + other.getName() + " by 20";
+		return this.getName() + " Used 15 " + this.getSpecialName() + " to damage " + other.getName() + " by 20";
 	}
 
 
