@@ -47,7 +47,7 @@ public class Barbarian extends Adventurer{
 	//hurt or hinder the target adventurer
 	public String attack(Adventurer other){
 		other.applyDamage(5);
-	    return "Dealt 5 damage against " + other.getName();
+	    return this.getName() + " Dealt 5 damage against " + other.getName();
 	}
 
 	//heall or buff the target adventurer
