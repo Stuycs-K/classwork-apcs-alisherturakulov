@@ -10,13 +10,11 @@ public class Barbarian extends Adventurer{
 	}
 
 	public Barbarian(String name, int hp){
-		this(name, hp, hp);
+		this(name, hp, 25);
 	}
 
 	public Barbarian(String name){
-		super(name);
-		this.special = 10;
-		this.specialMax = 10;
+		this(name, 100);
 	}
 
 
@@ -47,7 +45,7 @@ public class Barbarian extends Adventurer{
 	//hurt or hinder the target adventurer
 	public String attack(Adventurer other){
 		other.applyDamage(5);
-	    return this.getName() + " Dealt 5 damage against " + other.getName();
+	    return this.getName() + " attacks and deals 5 damage against " + other.getName();
 	}
 
 	//heall or buff the target adventurer
@@ -68,6 +66,7 @@ public class Barbarian extends Adventurer{
 
 	//hurt or hinder the target adventurer, consume some special resource
 	public String specialAttack(Adventurer other){
+		if(this.getSpecial() - 15 > 0) {
 		other.applyDamage(15);
 		int result = this.getSpecial() - 15;
 		if(result < 0){
@@ -75,6 +74,9 @@ public class Barbarian extends Adventurer{
 		}
 		this.setSpecial(result);
 		return this.getName() + " Used 15 " + this.getSpecialName() + " to damage " + other.getName() + " by 20";
+		}else{
+			return this.getName() + "doesn't have enough " + getSpecialName() + " " + this.attack(other);
+		}
 	}
 
 

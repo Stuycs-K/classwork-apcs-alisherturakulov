@@ -28,10 +28,10 @@ public class Game{
 				correctIn = false;
 			}
 			if(correctIn && enemy.getHP() > 0){
-				enemyAct = (int) Math.random()*3;
-				if(enemyAct == 0){
+				enemyAct = (int) (Math.random()*100);
+				if(enemyAct < 30){
 					System.out.println(enemy.attack(player));
-				}else if(enemyAct == 1){
+				}else if(enemyAct <= 60){
 					System.out.println(enemy.support());
 				}else{
 					System.out.println(enemy.specialAttack(player));
