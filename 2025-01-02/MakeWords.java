@@ -7,7 +7,12 @@ public class MakeWords{
   if(remainingLetters == 0){
     System.out.println(result);
   }else{
-    
+    for(int i = 0; i < ; i++){
+
+    }
+   System.out.println(result);
+
+   makeWords(remainingLetters--, result, alphabet);
 
   }
 
