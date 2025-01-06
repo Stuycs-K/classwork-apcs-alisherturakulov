@@ -1,20 +1,17 @@
 public class MakeWords{
-  public static void main(sttring[] args){
+	public static void main(String[] args){
+		makeWords(3, "", "abc");
+	}
 
-  }
-
-  public static void makeWords(int remainingLetters, String result, String alphabet){
-  if(remainingLetters == 0){
-    System.out.println(result);
-  }else{
-    for(int i = 0; i < ; i++){
-
-    }
-   System.out.println(result);
-
-   makeWords(remainingLetters--, result, alphabet);
-
-  }
-
-  }
+	public static void makeWords(int remainingLetters, String result, String alphabet){
+		for(int i = 0; i < alphabet.length(); i++){
+			if(remainingLetters > 0){
+				makeWords(remainingLetters - 1, result+alphabet.charAt(i), alphabet);
+			}else{
+				System.out.println(result);
+				//makeWords(1, result.substring(0,result.length()-1), alphabet.substring(1));
+			}
+		}
+	}
 }
+ 
