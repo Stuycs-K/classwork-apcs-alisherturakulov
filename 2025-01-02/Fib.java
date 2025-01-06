@@ -5,7 +5,7 @@ public class Fib{
    System.out.println(fib(2));
    System.out.println(fib(3));*/
    System.out.println(fib(46)); //largest that takes lless than 100 seconds
-   // about 2.1 billion max possible
+   // about 2.1 billion max, becomes negative value becaue java wraps into minimum integer limit from maximum integer limit
   }
 
   public static int fib(int n){
