@@ -9,6 +9,7 @@ public class MakeWords{
 				makeWords(remainingLetters - 1, result+alphabet.charAt(i), alphabet);
 			}else{
 				System.out.println(result);
+				i = 3;
 				//makeWords(1, result.substring(0,result.length()-1), alphabet.substring(1));
 			}
 		}
